@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "functions.h"
+#include "header.h"
 
 void print_list(struct node *n ){
 	 // struct node *first_node = n;
