@@ -1,8 +1,6 @@
-//#include "header.h"
+#include "header.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-struct node {int i; struct node *next;};
 
 int main(){
 	 struct node *n1= malloc(sizeof(struct node));
@@ -15,12 +13,18 @@ int main(){
 	 }
 	 print_list(n1);
 	 printf("Freeing list.\n");
-	 
-	 //printf("Removing node with data 4.\n");
-	 //n1 = remove(n1,4);
-	 //print_list(n1);
-	 
-	 for (int i = 0; i<10; i++){
+
+	 printf("Removing node with data 4.\n");
+	 n1 = remove_node(n1,4);
+	 print_list(n1);
+	 printf("Removing node with data 9.\n");
+	 n1 = remove_node(n1,9);
+	 print_list(n1);
+	 printf("Removing node with data 11.\n");
+	 n1 = remove_node(n1,11);
+	 print_list(n1);
+
+	 for (int i = 0; i<8; i++){
 		 printf("Freeing node: %d\n",n1-> i);
 		 n1 = free_list(n1);
 	 }

@@ -30,23 +30,29 @@ struct node * free_list(struct node *n){
 	 return n;
 }
 
-//struct node * remove(struct node *front, int data){ // currently has seg fault runtime error
-	 // struct node *prev;
-	 // struct node *n1 = malloc(sizeof(struct node));
-	 // n1 = NULL;
-	 // struct node *first = front;
-	 // while(front != NULL){
-		 // if (front-> i == data){
-			 // n1 = front;
-			 // break;
-		 // }
-		 // prev = front;
-		 // front = front-> next;
-	 // }
-	 // if (n1 != NULL){
-		// prev->next = n1 -> next;
-		// free_list(n1);
-	 // }
-	 // return front; 
-	 
-//}
+struct node * remove_node(struct node *front, int data){
+	 struct node *prev = malloc(sizeof(struct node));
+	 struct node *n1 = malloc(sizeof(struct node));
+	 n1 = NULL;
+	 prev = NULL;
+	 struct node *first = front;
+	 while(first != NULL){
+		 if (first-> i == data){
+			 n1 = first;
+			 break;
+		 }
+		 prev = first;
+		 first = first-> next;
+	 }
+	 if (n1 != NULL){
+		 if(prev == NULL){
+			 front = n1 -> next;
+		 }
+		 else{
+			 prev->next = n1 -> next;
+		 }
+		free_list(n1);
+	 }
+	 return front;
+
+}
